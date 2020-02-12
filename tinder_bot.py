@@ -8,11 +8,20 @@ import random
 from secrets import username, password
 
 class TinderBot():
+    """
+    Tinder Bot class
+    """
     def __init__(self):
+        """
+        Initialization
+        """
         self.driver = webdriver.Chrome()
         self.wait = WebDriverWait(self.driver, 10)
 
     def login(self):
+        """
+        Perform login with facebook action
+        """
         self.driver.get('https://tinder.com')
 
         fb_btn = self.wait.until(lambda d: d.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/div[2]/button'))
@@ -46,14 +55,23 @@ class TinderBot():
         popup_2.click()
 
     def like(self):
+        """
+        Perform like action
+        """
         like_btn = self.wait.until(lambda d: d.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/button[3]'))
         like_btn.click()
 
     def dislike(self):
+        """
+        Perform dislike action
+        """
         dislike_btn = self.wait.until(lambda d: d.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/button[1]'))
         dislike_btn.click()
 
     def auto_swipe(self):
+        """
+        Perform the auto swipe action
+        """
         while True:
             sleep(0.5)
             try:
@@ -70,13 +88,16 @@ class TinderBot():
                     except Exception:
                         try:
                             if self.out_of_likes():
-                                print("Plus de like disponible.")
+                                print("Out of likes.")
                                 break
                         except Exception:
-                            print('Erreur inconnue.')
+                            print('Unknow error.')
                             break
     
     def message_all(self):
+        """
+        Perform the message all action
+        """
         base_window = self.driver.window_handles[0]
 
         messages = [
@@ -114,23 +135,38 @@ class TinderBot():
           sleep(0.5)
 
     def close_popup(self):
+        """
+        Close annoying popup
+        """
         popup_3 = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button[2]')
         popup_3.click()
 
     def close_match(self):
+        """
+        Close match popup
+        """
         match_popup = self.driver.find_element_by_xpath('//*[@id="modal-manager-canvas"]/div/div/div[1]/div/div[3]/a')
         match_popup.click()
     
     def close_payment(self):
+        """
+        Close payment popup
+        """
         payment_popup = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[3]/button[2]')
         payment_popup.click()
     
     def out_of_likes(self):
+        """
+        Close out of likes popup
+        """
         likes_popup = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[3]/button[2]')
         if likes_popup:
             likes_popup.click()
             return 1
     
     def quit(self):
-        print('Fin du bot. Have fun ! ;)')
+        """
+        Perform quit action - Just quit the used driver
+        """
+        print('End of bot. Have fun ! ;)')
         self.driver.quit()

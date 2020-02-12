@@ -22,3 +22,7 @@ Run the auto message all mode:
 ```
 pipenv run python main.py -m
 ```
+
+
+Source : 
+Bot inspired by [Aaron](https://github.com/aj-4/tinder-swipe-bot) and a lot of code taken from his repo, thanks to him!
