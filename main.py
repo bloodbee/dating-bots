@@ -3,6 +3,7 @@ import sys, os
 from tinder_bot import TinderBot
 from resnet50 import NN
 
+import tensorflow as tf
 import numpy
 import cv2
 from sklearn.model_selection import train_test_split
@@ -32,6 +33,13 @@ def main(argv):
   elif '-l' in sys.argv: # launch auto swipe
     print('Launch the bot in auto swipe mode...')
     bot = TinderBot()
+    # create and load the NN
+    nn = NN()
+    nn.load()
+    model = nn.get_model()
+    # set the nn model into tinderbot
+    bot.setModel(model)
+    # perform actions
     bot.login()
     bot.auto_swipe()
     bot.quit()
@@ -78,7 +86,7 @@ def main(argv):
       print('accuracy', ' : ', value[1])
 
     # save model
-    model.save('beauty_nn.h5')
+    model.save()
       
 
 if __name__ == "__main__":

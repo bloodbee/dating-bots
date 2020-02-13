@@ -4,8 +4,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from time import sleep
 import random
+import requests, os
 
 from secrets import username, password
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+def download_image(source, destination):
+  img_data = requests.get(source).content
+  with open(destination, 'wb') as out:
+      out.write(img_data)
 
 class TinderBot():
   """
@@ -17,6 +25,9 @@ class TinderBot():
     """
     self.driver = webdriver.Chrome()
     self.wait = WebDriverWait(self.driver, 10)
+
+  def setModel(model):
+    self.model = model
 
   def login(self):
     """
@@ -163,6 +174,28 @@ class TinderBot():
     if likes_popup:
       likes_popup.click()
       return 1
+
+  def get_image_path(self):
+    body = self.driver.find_element_by_xpath('//*[@id="Tinder"]/body')
+    bodyHTML = body.get_attribute('innerHTML')
+    startMarker = '<div class="Bdrs(8px) Bgz(cv) Bgp(c) StretchedBox" style="background-image: url(&quot;'
+    endMarker = '&'
+
+    if not self.begining:
+      urlStart = bodyHTML.rfind(startMarker)
+      urlStart = bodyHTML[:urlStart].rfind(startMarker)+len(startMarker)
+    else:
+      urlStart = bodyHTML.rfind(startMarker)+len(startMarker)
+
+    self.begining = False
+    urlEnd = bodyHTML.find(endMarker, urlStart)
+    return bodyHTML[urlStart:urlEnd]
+
+  def current_scores(self):
+    url = self.get_image_path()
+    outPath = os.path.join(APP_ROOT, 'images', os.path.basename(url))
+    download_image(url, outPath)
+    return self.model.scores(outPath)
   
   def quit(self):
     """
