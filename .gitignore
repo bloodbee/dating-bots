@@ -13,3 +13,6 @@ pip-delete-this-directory.txt
 #   install all needed dependencies.
 Pipfile.lock
 
+# zipped dataset
+SCUT-FBP5500_v2.1.zip
+

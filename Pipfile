@@ -7,6 +7,12 @@ verify_ssl = true
 
 [packages]
 selenium = "*"
+tensorflow = "*"
+numpy = "*"
+opencv-python = "*"
+sklearn = "*"
+pyyaml = "*"
+h5py = "*"
 
 [requires]
 python_version = "3.7"
