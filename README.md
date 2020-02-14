@@ -1,4 +1,4 @@
-# Meeting Apps Bots
+# Dating Bots
 A tinder and a badoo bot that can do automatic swipes and can send automatic messages.
 
 
