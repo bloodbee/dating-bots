@@ -180,7 +180,7 @@ class BadooBot(object):
     """
     Close out of likes popup
     """
-    likes_popup = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[3]/button[2]')
+    likes_popup = self.driver.find_element_by_xpath('/html/body/aside/section/div[1]/div/div[1]/section/div/div[2]/div')
     if likes_popup:
       likes_popup.click()
       return 1

@@ -7,10 +7,11 @@ def main(argv):
   Main function to manage commands and what to do.
   """
   if '-h' in sys.argv:
-    print('main.py -lt || main.py -lb  || main.py -m')
-    print('-lt will launch the tinder bot and start the auto swipe')
-    print('-lb will launch the badoo bot and start the auto swipe')
-    print('-m will launch the bot and message all matched persons')
+    print('main.py -tl || main.py -tm  || main.py -bl || main.py -bm')
+    print('-tl will launch the tinder bot and start the auto swipe')
+    print('-tm will launch the tinder bot and message all matched persons')
+    print('-bl will launch the badoo bot and start the auto swipe')
+    print('-bm will launch the badoo bot and message all matched persons')
     print('One bot at a time !')
     sys.exit()
   elif '-tl' in sys.argv:
