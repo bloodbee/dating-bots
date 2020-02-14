@@ -1,6 +1,11 @@
 .vscode
+.DS_Store
 
 secrets.py
+
+*.pyc
+
+SCUT-FBP5500_v2.1.zip 
 
 # Installer logs
 pip-log.txt
