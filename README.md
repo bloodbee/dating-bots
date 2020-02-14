@@ -1,5 +1,5 @@
-# Tinder Bot
-A tinder bot that can do automatic swipes and can send automatic messages.
+# Meeting Apps Bots
+A tinder and a badoo bot that can do automatic swipes and can send automatic messages.
 
 
 To install you need [pipenv](https://pipenv.readthedocs.io/en/latest/install/) and a [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/):
@@ -13,14 +13,22 @@ Create a secrets.py file with variables:
  password = 'your_password'
 ```
 
-Run the auto swipe mode:
+Run the auto swipe mode for tinder bot:
 ```
-pipenv run python main.py -l
+pipenv run python main.py -tl
+```
+Run the auto swipe mode for badoo bot:
+```
+pipenv run python main.py -bl
 ```
 
-Run the auto message all mode:
+Run the auto message all mode for tinder bot:
 ```
-pipenv run python main.py -m
+pipenv run python main.py -tm
+```
+Run the auto message all mode for badoo bot:
+```
+pipenv run python main.py -bm
 ```
 
 
