@@ -1,15 +1,20 @@
 .vscode
 .DS_Store
 
+# secrets
 secrets.py
 
 *.pyc
 
+# dataset zipped
 SCUT-FBP5500_v2.1.zip 
 
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+
+# pycache
+__pycache__
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
