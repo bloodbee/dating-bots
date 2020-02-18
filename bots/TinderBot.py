@@ -2,9 +2,9 @@ from time import sleep
 import random
 import requests, os
 
-from bots.base.Bot import Bot
+from bots.base.BaseBot import BaseBot
 
-class TinderBot(Bot):
+class TinderBot(BaseBot):
   """
   Tinder Bot class
   """

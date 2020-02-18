@@ -1,6 +1,6 @@
 import sys
-from bots.TinderBot import TinderBot as TinderBot
-from bots.BadooBot import BadooBot as BadooBot
+from bots.TinderBot import TinderBot
+from bots.BadooBot import BadooBot
 
 def main(argv):
   """

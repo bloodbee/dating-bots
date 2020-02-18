@@ -15,7 +15,7 @@ def download_image(source, destination):
   with open(destination, 'wb') as out:
       out.write(img_data)
 
-class Bot(object):
+class BaseBot(object):
   """
   Abstract class Bot
   """

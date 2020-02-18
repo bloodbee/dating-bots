@@ -3,9 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import requests, os
 
-from bots.base.Bot import Bot
+from bots.base.BaseBot import BaseBot
 
-class BadooBot(Bot):
+class BadooBot(BaseBot):
   """
   Badoo Bot class
   """
