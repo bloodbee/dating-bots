@@ -169,8 +169,9 @@ class BaseBot(object):
               try:
                 self.out_of_likes()
                 print("Out of likes.")
+                break
               except Exception:
-                sleep(50)
+                sleep(20)
                 print('Unknow error.')
                 break
   
